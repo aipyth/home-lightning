@@ -1,2 +1,2 @@
 all:
-	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o main main.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -o main main.go
