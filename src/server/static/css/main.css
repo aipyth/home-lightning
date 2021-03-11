@@ -1,0 +1,54 @@
+body .container {
+    display: flex;
+    justify-content: center;
+    color: #231F20;
+    font-family: 'Lato', sans-serif;
+}
+
+.led {
+    display: flex;
+    flex-flow: column;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.15);
+
+    padding: 10px 15px;
+    margin-top: 30px;
+    color: inherit;
+    min-width: 40vw;
+}
+
+@media screen and (max-width: 800px) {
+    .led {
+        width: 85vw;
+    }
+}
+
+.led h1 {
+    text-align: center;
+    text-transform: capitalize;
+    margin: 5px;
+}
+
+.led input[type='range'] {
+    width: 100%;
+}
+
+.led select {
+    width: 100%;
+    padding: 4px;
+    font-size: 1.5em;
+    line-height: 30px;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.led option:checked {
+    /*background-color: rgba(30, 0, 200, 0.3);*/
+}
+.led option:hover {
+    /*background-color: rgba(30, 0, 200, 0.4);*/
+}
