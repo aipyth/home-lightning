@@ -118,3 +118,7 @@ function renderLEDSInterface() {
 getModes().then( () => {
     getLeds().then(renderLEDSInterface)
 })
+
+setInterval(() => {
+    getLeds().then(renderLEDSInterface)
+}, 100)
