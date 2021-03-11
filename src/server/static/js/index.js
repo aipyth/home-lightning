@@ -115,10 +115,22 @@ function renderLEDSInterface() {
     document.querySelector("#leds").innerHTML = out
 }
 
+function updateData() {
+    for (i = 0; i < LEDS.length; i++) {
+        // let el = document.querySelector(`#${LEDS[i].Place}`)
+        let br = document.querySelector(`#${LEDS[i].Place} input[type='range']`)
+        let co = document.querySelector(`#${LEDS[i].Place} input[type='color']`)
+        let se = document.querySelector(`#${LEDS[i].Place} select`)
+        br.value = LEDS[i].Brightness * 100
+        co.value = LEDS[i].Color
+        se.value = LEDS[i].Mode
+    }
+}
+
 getModes().then( () => {
     getLeds().then(renderLEDSInterface)
 })
 
 setInterval(() => {
-    getLeds().then(renderLEDSInterface)
+    getLeds().then(updateData)
 }, 100)
