@@ -37,6 +37,7 @@ type LEDLine struct {
 }
 
 var Modes = []string{
+	"meteor",
 	"oneline",
 	"off",
 }
@@ -92,7 +93,6 @@ func StartBot(leds []LEDLine) {
 		//
 		//}
 
-
 		b.Respond(c)
 	})
 
@@ -122,7 +122,7 @@ func StartServer(leds []LEDLine) {
 		}
 	})
 
-	r.GET("/", func (c *gin.Context) {
+	r.GET("/", func(c *gin.Context) {
 		c.HTML(200, "index.html", gin.H{
 			"leds": leds,
 		})
