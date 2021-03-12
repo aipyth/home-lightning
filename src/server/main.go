@@ -38,6 +38,8 @@ type LEDLine struct {
 
 var Modes = []string{
 	"meteor",
+	"fire",
+	"water drops",
 	"oneline",
 	"off",
 }
