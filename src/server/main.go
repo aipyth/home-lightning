@@ -41,6 +41,7 @@ var Modes = []string{
 	"drops",
 	"fire",
 	"rainbow",
+	"2 soft colors",
 	"oneline rainbow",
 	"water drops",
 	"oneline",
