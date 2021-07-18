@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  redis:
+    build:
+      context: .
+      dockerfile: redis.Dockerfile
+
+
+  server:
+    container_name: lighting-server
+    build: server
+    volumes:
+      - ./server/main:/app/main:Z
+      - ./server/static:/app/static:Z
+      - ./server/templates:/app/templates:Z
+    environment:
+      REDIS_URL: redis:6379
+    depends_on:
+      - redis
+    ports:
+      - 8080:8080
+    stop_signal: SIGINT
+    stop_grace_period: 1s
+
