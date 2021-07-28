@@ -4,49 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Light</title>
+
+    <!--  Vue Development Build  -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!--  Vue Production Build  -->
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>-->
+    <script defer src="/static/js/websocket.js"></script>
+    <script defer src="/static/js/settings.js"></script>
+    <script defer src="/static/js/index.js"></script>
 </head>
 <body>
-    <script>
-        const socket = new WebSocket('ws://localhost:8080/socket/web-interface')
-
-		function SendToServer(a) {
-			socket.send(typeof a === 'string' ? a : JSON.stringify(a))
-		}
-
-		function sleep(milliseconds) {
-			const date = Date.now();
-			let currentDate = null;
-			do {
-				currentDate = Date.now();
-			} while (currentDate - date < milliseconds);
-		}
-
-		function bench() {
-			for (i = 0; i < 20; i++) {
-				SendToServer("test;data")
-				sleep(1000)
-			}
-		}
-
-        socket.onopen = () => {
-            console.log('Socket connection opened')
-			//SendToServer("test;somedata;")
-			//bench()
-			SendToServer("create-mode;on")
-			SendToServer("get-modes")
-        }
-
-        socket.onclose = () => {
-            console.log('Socket connection closed')
-        }
-
-
-        socket.onmessage = (ev) => {
-            console.log(ev.data)
-        }
-
-
-    </script>
+    <div id="app"></div>
 </body>
 </html>
